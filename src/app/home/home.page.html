@@ -1,21 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-title>Mi cámara</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p class="instruccion">Presiona el botón para tomar una fotografía.</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a>
-    </p>
+  <ion-button expand="block" (click)="tomarFoto()"> Tomar fotografía </ion-button>
+
+  <div class="area-foto">
+    @if (fotoUrl()) {
+    <img [src]="fotoUrl()" alt="Fotografía capturada" />
+    } @else {
+    <p class="sin-foto">Aún no hay ninguna fotografía.</p>
+    }
   </div>
 </ion-content>
